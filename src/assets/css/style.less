@@ -1,0 +1,54 @@
+@primary: #398fff;
+@positive: #2eaa8b;
+@white: #fff;
+@gray: #aaa;
+
+body {
+  font-family: helvetica neue, helvetica;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+button {
+  outline: none;
+}
+
+.disable {
+  cursor: not-allowed;
+  user-select: none;
+  padding: 0px;
+  opacity: 0.7;
+}
+
+@buttonType: {
+  adder: @primary;
+  prev: @positive;
+  next: @positive;
+}
+
+each(@buttonType, {
+    .image-@{key} {
+      transition: 0.3s ease-in;
+      background-color: @value;
+      color: @white;
+      border: none;
+      border-radius: 3px;
+
+      &:hover {
+        background-color: @white;
+        color: @value;
+        border: 1px solid @value;
+      }
+    }
+
+    .image-@{key}.disable:hover {
+      background-color: @value;
+      color: @white;
+      border: none;
+    }
+
+  }
+
+);
